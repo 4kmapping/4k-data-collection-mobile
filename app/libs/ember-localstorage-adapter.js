@@ -37,7 +37,7 @@ DS.LSAdapter = DS.Adapter.extend(Ember.Evented, {
   },
 
   generateIdForRecord: function() {
-    return Math.random().toString(32).slice(2).substr(0,5);
+    return parseInt(Math.random() * 1000, 10) ; //.toString(32).slice(2).substr(0,5);
   },
 
   serializer: DS.LSSerializer.create(),
