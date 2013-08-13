@@ -5,8 +5,8 @@ DataCollectionApp.LocationAddController = Ember.Controller.extend({
     var location = {
       tags: [],
       desc: 'No description given',
-      lat: 0,
-      long: 0
+      lat: 0.1,
+      lon: 0.1
     } ;
 
     if(this.get('desc') !== undefined) location.desc = this.get('desc') ;
@@ -15,10 +15,10 @@ DataCollectionApp.LocationAddController = Ember.Controller.extend({
 
     //check for current location.
     //needs replacement with phonegap api
-    navigator.geolocation.getCurrentPosition(function(pos){
-      location.lat = pos.coords.latitude ;
-      location.long = pos.coords.longitude ;
-    }) ;
+    // navigator.geolocation.getCurrentPosition(function(pos){
+    //   location.lat = pos.coords.latitude ;
+    //   location.lon = pos.coords.longitude ;
+    // }) ;
 
     DataCollectionApp.Location.createRecord(location).save();
 

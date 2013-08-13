@@ -28,17 +28,19 @@ DataCollectionApp.ApplicationRoute = Ember.Route.extend({
         var locationObject = {
           orig_id: location.get('id'),
           lat: location.get('lat'),
-          long: location.get('long'),
+          lon: location.get('lon'),
           desc: location.get('desc'),
           tags: location.get('tags'),
         } ;
 
+        console.log(locationObject) ;
+
         $.ajax({
           url: given.server_root_address + 'location/',
           method: 'post',
-          data: locationObject,
+          data: JSON.stringify(locationObject),
           crossDomain: true,
-          // contentType: 'application/json',
+          contentType: 'application/json',
           beforeSend: function(request){
             request.setRequestHeader('Authorization', 'ApiKey admin:5e4d3c2b1a');
           },

@@ -26,7 +26,7 @@ DataCollectionApp.LocationsMapView = Ember.CollectionView.extend({
     this.get('controller.content').forEach(function(location){
 
       new google.maps.Marker({
-          position: new google.maps.LatLng(location.get('lat'), location.get('long')),
+          position: new google.maps.LatLng(location.get('lat'), location.get('lon')),
           map: given.get('map'),
           title: location.desc
       }) ;
