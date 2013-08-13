@@ -1,0 +1,21 @@
+<a {{action toggleView}} href="javascript://">map/list toggle</a>
+
+{{#if listView}}
+
+  <ul>
+    {{#each model}}
+      <li>{{#linkTo 'location' this}}{{this.desc}} - {{this.lat}}, {{this.long}} {{/linkTo}}</li>
+    {{/each}}
+  </ul>
+
+{{else}}
+
+  {{view DataCollectionApp.LocationsMapView}}
+
+{{/if}}
+
+<div class="bottom-bar">
+    {{#linkTo 'location.add'}} + Add + {{/linkTo}}
+</div>
+
+{{outlet}}

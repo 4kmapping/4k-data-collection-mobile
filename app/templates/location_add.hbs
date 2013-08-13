@@ -1,0 +1,15 @@
+<form class="form-horizontal" {{action "createLocation" on="submit"}}>
+
+  <label for="desc">Description of the amazing things you've seen</label>
+  {{view Ember.TextArea id="desc" valueBinding="desc"}}
+
+  <label for="tags">Tagz!</label>
+  {{view Ember.TextField id="tags" valueBinding="tags"}}
+
+  <br>
+
+  <button class="btn" type="submit">Add</button>
+
+</form>
+
+{{outlet}}
