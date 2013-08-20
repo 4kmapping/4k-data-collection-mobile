@@ -1,5 +1,16 @@
-<a {{action 'toggleSettings'}} href="javascript://">settings toggle</a>
+<div class="main">
 
-{{outlet}}
+  <div class="topbar">
+    <a {{action 'toggleSettings'}} href="javascript://">settings toggle</a>
+    {{outlet topbar}}
+  </div>
 
-{{outlet modalOutlet}}
+  {{outlet}}
+
+  <div class="bottom-bar">
+      {{#linkTo 'location.add'}} + Add + {{/linkTo}}
+  </div>
+
+</div>
+
+{{outlet modal}}

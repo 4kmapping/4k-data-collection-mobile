@@ -1,1 +1,2 @@
-DataCollectionApp.ApplicationController = Ember.Controller.extend() ;
+DataCollectionApp.ApplicationController = Ember.Controller.extend({
+}) ;

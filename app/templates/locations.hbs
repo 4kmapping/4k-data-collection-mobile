@@ -1,5 +1,3 @@
-<a {{action toggleView}} href="javascript://">map/list toggle</a>
-
 {{#if listView}}
 
   <ul>
@@ -13,9 +11,5 @@
   {{view DataCollectionApp.LocationsMapView}}
 
 {{/if}}
-
-<div class="bottom-bar">
-    {{#linkTo 'location.add'}} + Add + {{/linkTo}}
-</div>
 
 {{outlet}}

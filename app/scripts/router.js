@@ -5,7 +5,8 @@ DataCollectionApp.Router.map(function () {
   this.resource('locations', { path: '/' }, function() {
 
     this.resource('location.add', { path: '/location/add' });
-  
+
   });
+
 
 });

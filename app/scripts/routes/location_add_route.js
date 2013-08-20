@@ -1,8 +1,8 @@
 DataCollectionApp.LocationAddRoute = Ember.Route.extend({
   renderTemplate: function() {
-    this.render('location.add', {
+    this.render('location_add', {
       into: 'application',
-      outlet: 'modalOutlet'
+      outlet: 'modal'
     });
   }
 });
