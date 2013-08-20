@@ -1,5 +1,7 @@
 DataCollectionApp.SettingsController = Ember.ObjectController.extend({
 
+  offlineMode: false,
+
   server_root_address: 'http://192.237.166.7/api/0.1/',
 
   sync: function() {

@@ -1,14 +1,14 @@
 <div class="main">
 
   <div class="topbar">
-    <a {{action 'toggleSettings'}} href="javascript://">settings toggle</a>
+    {{#linkTo 'settings' classNames="settingsToggle"}}Settings{{/linkTo}}
     {{outlet topbar}}
   </div>
 
   {{outlet}}
 
-  <div class="bottom-bar">
-      {{#linkTo 'location.add'}} + Add + {{/linkTo}}
+  <div class="bottombar">
+      {{#linkTo 'location.add' classNames="add-location"}}Add location{{/linkTo}}
   </div>
 
 </div>

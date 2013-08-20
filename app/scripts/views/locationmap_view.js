@@ -1,4 +1,4 @@
-DataCollectionApp.LocationsMapView = Ember.CollectionView.extend({
+DataCollectionApp.LocationMapView = Ember.CollectionView.extend({
 
   map: null,
 

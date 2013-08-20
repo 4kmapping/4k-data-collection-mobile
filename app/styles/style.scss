@@ -1,6 +1,152 @@
-@import "bootstrap-sass/lib/bootstrap";
+// colours!
+$white: #fff;
+$offWhite: #c3c3c3;
+
+$lightGrey: #e5e5e5;
+$offLightGrey: #dbdbdb;
+$darkLightGrey: #c8c8c8;
+
+$darkGrey: #434343;
+$black: #000;
+
+body {
+	background-color: $lightGrey ;
+
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-weight: 300;
+}
+
+.main {
+	position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+
+	&.showingSettings {
+		left: 250px;
+	}
+
+	.content {
+		position: relative;
+
+		width: 300px;
+
+		margin: 0 auto;
+		padding-top: 60px;
+		padding-bottom: 80px;
+
+		ul {
+			margin: 0;
+			border: 1px solid $offLightGrey;
+
+			li {
+				display: block;
+
+				// margin-top: -1px;
+				padding: 15px;
+
+				background-color: $white;
+				border-bottom: 1px solid $darkLightGrey;
+				font-size: 16px;
+				color: $black;
+
+				list-style-type: none;
+
+				&:last-child {
+					border-bottom: none;
+				}
+			}
+		}
+	}
+}
+
+.topbar {
+	height: 50px;
+	position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+
+	z-index: 1000;
+
+	a {
+		//temp
+		background-color: white;
+	}
+
+}
+
+.bottombar {
+	height: 50px;
+
+	position: fixed;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	z-index: 1000;
+
+	background-color: $lightGrey;
+
+	.add-location {
+		display: block;
+
+		width: 100px;
+		height: 40px;
+
+		margin: -20px auto 0;
+		padding-top: 30px;
+
+		background-color: $white;
+		font-size: 16px;
+		text-align: center;
+	}
+}
 
 .google-maps {
-	width: 600px;
-	height: 600px;
+	position: absolute !important; //or googlemaps wont listen
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	z-index: 0;
+}
+
+.settings {
+	width: 250px;
+	position: fixed;
+		top: 0;
+		bottom: 0;
+	z-index: 1500;
+	background-color: $darkGrey;
+
+	ul {
+
+		margin: 0;
+		border-top: 1px solid #565656;
+
+		li {
+			list-style-type: none;
+
+			a, label {
+				display: block;
+				padding: 15px;
+				color: $offWhite;
+				font-size: 20px;
+
+				&:hover {
+					text-decoration: none;
+				}
+			}
+
+			label, input {
+				display: inline-block;
+			}
+
+			input {
+				margin-top: -5px;
+				margin-left: 20px;
+			}
+		}
+	}
 }
