@@ -8,8 +8,8 @@ DataCollectionApp.LocationsMapView = Ember.CollectionView.extend({
 
     var mapOptions = {
         disableDefaultUI: true,
-        zoom: 14,
-        center: new google.maps.LatLng(0, 0), //somewhere in togo, idk
+        zoom: 15,
+        center: new google.maps.LatLng(52.370216, 4.895168),
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
 
