@@ -1,15 +1,41 @@
-<form class="form-horizontal" {{action "createLocation" on="submit"}}>
+<div class="main slideOver">
 
-  <label for="desc">Description of the amazing things you've seen</label>
-  {{view Ember.TextArea id="desc" valueBinding="desc"}}
+  <div class="content">
 
-  <label for="tags">Tagz!</label>
-  {{view Ember.TextField id="tags" valueBinding="tags"}}
+    <form {{action "createLocation" on="submit"}}>
 
-  <br>
+      <h2>To what categories does this ministry belong?</h2>
 
-  <button class="btn" type="submit">Add</button>
+      <ul>
+        <li>
+          <input type="checkbox" name="category[evangelism]" id="category-evangelism">
+          <label for="category-evangelism">Evangelism</label>
+        </li>
+        <li>
+          <input type="checkbox" name="category[mercy-ministry]" id="category-mercy-ministry">
+          <label for="category-mercy-ministry">Mercy Ministry</label>
+        </li>
+        <li>
+          <input type="checkbox" name="category[training]" id="category-training">
+          <label for="category-training">Training</label>
+        </li>
+      </ul>
 
-</form>
 
-{{outlet}}
+      <label for="desc">Description of the amazing things you've seen</label>
+      {{view Ember.TextArea id="desc" valueBinding="desc"}}
+
+      <label for="tags">Tagz!</label>
+      {{view Ember.TextField id="tags" valueBinding="tags"}}
+
+      <br>
+
+      <button class="btn" type="submit">Add</button>
+
+    </form>
+
+    {{outlet}}
+
+  </div>
+
+</div>

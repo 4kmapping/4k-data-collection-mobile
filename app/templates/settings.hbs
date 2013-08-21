@@ -2,7 +2,7 @@
 
   <ul>
     <li><a {{action sync}} href="javascript://">Sync with server</a></li>
-    <li>{{#linkTo 'location.list'}}My data{{/linkTo}}</li>
+    <li>{{#linkTo 'location.map'}}My data{{/linkTo}}</li>
   </ul>
 
   <ul>
@@ -12,6 +12,7 @@
   <ul>
     <li>
       <label>Offline mode</label>
+      {{! http://codepen.io/joshnh/pen/hjbuH }}
       {{view Ember.Checkbox checkedBinding="offlineMode"}}
     </li>
     <li>{{#linkTo 'settings.privacy'}}Privacy settings{{/linkTo}}</li>
