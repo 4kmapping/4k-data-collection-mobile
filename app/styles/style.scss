@@ -7,6 +7,7 @@ $offWhite: #c3c3c3;
 $lightGrey: #e5e5e5;
 $offLightGrey: #dbdbdb;
 $darkLightGrey: #c8c8c8;
+$blackTextOnGrey: #7b7b7b;
 
 $darkGrey: #434343;
 $black: #000;
@@ -43,8 +44,14 @@ body {
 		padding-top: 60px;
 		padding-bottom: 80px;
 
-		h2 {
+		label, p, h2 {
 			font-weight: 100;
+		}
+
+		label, p {
+			font-size: 16px;
+			line-height: 16px * 1.5 ;
+			color: $blackTextOnGrey;
 		}
 
 		ul {
@@ -86,6 +93,13 @@ body {
 					}
 				}
 			}
+		}
+
+		textarea {
+			width: 100%;
+			max-width: 100%;
+			min-height: 100px;
+			margin-bottom: 50px;
 		}
 	}
 }
