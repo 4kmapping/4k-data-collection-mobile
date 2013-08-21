@@ -7,20 +7,24 @@
       <h2>To what categories does this ministry belong?</h2>
 
       <ul>
-        <li>
-          <input type="checkbox" name="category[evangelism]" id="category-evangelism">
-          <label for="category-evangelism">Evangelism</label>
-        </li>
-        <li>
-          <input type="checkbox" name="category[mercy-ministry]" id="category-mercy-ministry">
-          <label for="category-mercy-ministry">Mercy Ministry</label>
-        </li>
-        <li>
-          <input type="checkbox" name="category[training]" id="category-training">
-          <label for="category-training">Training</label>
-        </li>
+       {{#each types}}
+          <li>
+            <input type="checkbox" name="category[{{tagize type}}]" id="category-{{tagize type}}">
+            <label for="category-{{tagize type}}">{{type}}</label>
+          </li>
+       {{/each}}
       </ul>
 
+      <h2>What areas of ministry happens on this location?</h2>
+
+      <ul>
+       {{#each areas}}
+          <li>
+            <input type="checkbox" name="category[{{tagize area}}]" id="category-{{tagize area}}">
+            <label for="category-{{tagize area}}">{{area}}</label>
+          </li>
+       {{/each}}
+      </ul>
 
       <label for="desc">Description of the amazing things you've seen</label>
       {{view Ember.TextArea id="desc" valueBinding="desc"}}
