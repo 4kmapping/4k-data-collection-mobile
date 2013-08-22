@@ -4,8 +4,6 @@ DataCollectionApp.LocationMapRoute = Ember.Route.extend({
   },
   renderTemplate: function() {
 
-    console.log('hi im rendering bye') ;
-
     //rendering the topbar
     this.render('location_topbar', {
       into: 'application',

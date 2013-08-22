@@ -101,6 +101,24 @@ body {
 			min-height: 100px;
 			margin-bottom: 50px;
 		}
+
+		.tagit {
+			padding: 5px;
+			border: none;
+			background-color: $darkLightGrey;
+
+			.remove.ui-state-highlight {
+				background-color: $lightGrey;
+			}
+
+			.tagit-new {
+				background-color: $offLightGrey;
+			}
+
+			.ui-helper-hidden-accessible {
+				display: none;
+			}
+		}
 	}
 }
 

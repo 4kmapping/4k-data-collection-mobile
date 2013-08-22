@@ -6,4 +6,5 @@ DataCollectionApp.LocationAddRoute = Ember.Route.extend({
       outlet: 'modal'
     });
   }
+
 });
