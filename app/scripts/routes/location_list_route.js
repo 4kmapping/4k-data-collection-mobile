@@ -11,9 +11,7 @@ DataCollectionApp.LocationListRoute = Ember.Route.extend({
     });
 
     //rendering the main thing
-    this.render('location_list', {
-      into: 'application'
-    });
+    this.render('location_list');
 
   }
 });
