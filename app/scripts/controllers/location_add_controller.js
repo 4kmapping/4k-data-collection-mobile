@@ -1,7 +1,31 @@
 DataCollectionApp.LocationAddController = Ember.Controller.extend({
 
-  types: [ { type:'Training' }, { type: 'Mercy' }, { type: 'Evangelism' } ],
-  areas: [ { area:'Youth/Children' }, { area: 'Campus Ministry' }, { area: 'Indigenous Ministry' }, { area: 'Prison Ministry' }, { area: 'Prostitutes Ministry' }, { area: 'Orphanage' }, { area: 'Women' }, { area: 'Urban' }, { area: 'Hospital' }, { area: 'Media/Communications' }, { area: 'Worship' }, { area: 'Community Development' }, { area: 'Bible Studies' }, { area: 'Church Planting' }, { area: 'Arts/Entertainment/Sports' }, { area: 'Counseling' }, { area: 'Healthcare' }, { area: 'Maintenance/Construction' } ],
+  types: ['Training', 'Mercy', 'Evangelism'].map(ArrayMapHelpers.stringToTagObject),
+  areas: ['Youth/Children', 'Campus Ministry', 'Indigenous Ministry', 'Prison Ministry', 'Prostitutes Ministry', 'Orphanage', 'Women', 'Urban', 'Hospital', 'Media/Communications', 'Worship', 'Community Development', 'Bible Studies', 'Church Planting', 'Arts/Entertainment/Sports', 'Counseling', 'Healthcare', 'Maintenance/Construction'].map(ArrayMapHelpers.stringToTagObject),
+
+  tags: function() {
+
+    var typesList = this.get('types').filterProperty('checked', true).getEach('tag').toArray(),
+        areasList = this.get('areas').filterProperty('checked', true).getEach('tag').toArray(),
+        tagsList = typesList.concat(areasList) ;
+
+    //first remove any exising tags
+    $('#tags').tagit('removeAll') ;
+
+    //add all items
+    $.each(tagsList, function(index, tag){
+
+      $('#tags').tagit('createTag', tag) ;
+
+    }) ;
+
+    return tagsList ;
+
+  }.property('types.@each.checked', 'areas.@each.checked'),
+
+  tagString: function(){
+    return this.get('tags').join(', ') ;
+  }.property('tags'),
 
   createLocation: function () {
 

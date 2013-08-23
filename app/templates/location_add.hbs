@@ -9,8 +9,8 @@
       <ul>
        {{#each types}}
           <li>
-            <input type="checkbox" name="category[{{tagize type}}]" id="category-{{tagize type}}">
-            <label for="category-{{tagize type}}">{{type}}</label>
+            {{view Ember.Checkbox checkedBinding="checked"}}
+            <label>{{name}}</label>
           </li>
        {{/each}}
       </ul>
@@ -20,8 +20,8 @@
       <ul>
        {{#each areas}}
           <li>
-            <input type="checkbox" name="category[{{tagize area}}]" id="category-{{tagize area}}">
-            <label for="category-{{tagize area}}">{{area}}</label>
+            {{view Ember.Checkbox checkedBinding="checked"}}
+            <label>{{name}}</label>
           </li>
        {{/each}}
       </ul>
@@ -34,7 +34,10 @@
       <h2>Would you, say, think its about hashtag time?</h2>
 
       <label for="tags">#yolo</label>
-      {{view Ember.TextField id="tags" valueBinding="tags"}}
+
+      <ul id="tags"></ul>
+
+      {{view Ember.TextField valueBinding="tagString" type="hidden"}}
 
       <br>
 
