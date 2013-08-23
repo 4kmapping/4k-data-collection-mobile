@@ -5,9 +5,12 @@ $white: #fff;
 $offWhite: #c3c3c3;
 
 $lightGrey: #e5e5e5;
+$dropShadowOnLightGrey: #d2d2d2;
 $offLightGrey: #dbdbdb;
 $darkLightGrey: #c8c8c8;
 $blackTextOnGrey: #7b7b7b;
+
+$happyBlue: #0079ff;
 
 $darkGrey: #434343;
 $black: #000;
@@ -15,7 +18,7 @@ $black: #000;
 body {
 	background-color: $lightGrey ;
 
-	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	font-weight: 300;
 }
 
@@ -44,11 +47,12 @@ body {
 		padding-top: 60px;
 		padding-bottom: 80px;
 
-		label, p, h2 {
-			font-weight: 100;
+		h2 {
+			font-weight: 200;
 		}
 
 		label, p {
+			font-weight: 300;
 			font-size: 16px;
 			line-height: 16px * 1.5 ;
 			color: $blackTextOnGrey;
@@ -129,13 +133,15 @@ body {
 }
 
 .topbar {
-	height: 50px;
+	height: 20px;
 	position: fixed;
 		top: 0;
 		left: 0;
 		right: 0;
 
 	z-index: 1000;
+
+	padding: 15px;
 
 	a {
 		//temp
@@ -219,4 +225,33 @@ body {
 
 		}
 	}
+}
+
+.slideOver {
+
+	.topbar {
+		background-color: $white;
+
+		-webkit-box-shadow:  2px 0px 2px 2px rgba(1, 1, 1, .1);
+        		box-shadow:  2px 0px 2px 2px rgba(1, 1, 1, .1);
+
+		a {
+			color: $happyBlue;
+			font-size: 18px;
+		}
+
+		h1 {
+			width: 300px;
+			position: absolute;
+				top: 0;
+				left: 50%;
+
+			margin-left: -150px;
+			text-align: center;
+			font-size: 23px;
+			line-height: 30px;
+			font-weight: 500;
+		}
+	}
+
 }

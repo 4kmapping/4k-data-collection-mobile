@@ -1,5 +1,10 @@
 <div class="main slideOver">
 
+  <div class="topbar">
+    {{#linkTo 'location.map'}}Close{{/linkTo}}
+    <h1>Add Location</h1>
+  </div>
+
   <div class="content">
 
     <form {{action "createLocation" on="submit"}}>
