@@ -2,7 +2,7 @@ DataCollectionApp.Router.map(function () {
 
   this.resource('location.map', { path: '/' });
   this.resource('location.list', { path: '/list' });
-  this.resource('location.add', { path: '/add' });
+  this.resource('location.add', { path: '/add' });  
 
   this.resource('settings', { path: '/settings' }) ;
   this.resource('settings.new_validation_code', { path: '/settings/new_validation_code' }) ;
