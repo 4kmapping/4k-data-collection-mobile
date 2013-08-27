@@ -1,7 +1,9 @@
 DataCollectionApp.LocationMapRoute = Ember.Route.extend({
+
   model: function() {
     return DataCollectionApp.Location.find();
   },
+
   renderTemplate: function() {
 
     //rendering the topbar
@@ -14,4 +16,5 @@ DataCollectionApp.LocationMapRoute = Ember.Route.extend({
     this.render('location_map');
 
   }
+
 });

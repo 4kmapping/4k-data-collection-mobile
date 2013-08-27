@@ -7,5 +7,6 @@ DataCollectionApp.Location = DS.Model.extend({
   phone: DS.attr('string'),
   website: DS.attr('string'),
   security_level: DS.attr('number'),
+  created_at: DS.attr('date'),
   syncedWithServer: DS.attr('boolean', { defaultValue: false })
 }) ;

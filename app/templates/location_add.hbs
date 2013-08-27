@@ -47,21 +47,19 @@
       <h2>How can we stay in contact with this ministry?</h2>
 
       <label for="email">Email</label>
-      <input type="email" id="email" name="email">
+      {{view Ember.TextField id="email" valueBinding="email" type="email"}}
 
       <label for="phone">Phone</label>
-      <input type="tel" id="phone" name="phone">
+      {{view Ember.TextField id="phone" valueBinding="phone" type="text"}}
 
       <label for="website">Website</label>
-      <input type="text" id="website" name="website">
+      {{view Ember.TextField id="website" valueBinding="website" type="text"}}
 
       <h2>Who can know this information?</h2>
-
-      <select name="privacy">
-        <option value="2">Only my group</option>
-        <option value="1">Only 4k trusted users</option>
-        <option value="0">Everybody</option>
-      </select>
+      {{view Ember.Select
+        contentBinding="security_level_options"
+        optionValuePath="content.level"
+        optionLabelPath="content.name"}}
 
       <a href="javascript://" class="action" {{action "createLocation"}}>Add location</a>
 
