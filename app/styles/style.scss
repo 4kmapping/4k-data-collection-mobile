@@ -127,7 +127,9 @@ body {
 
 				list-style-type: none;
 
-				@include arrow-right ;
+				&.call-to-action {
+					@include arrow-right ;
+				}
 
 				&:last-child {
 					border-bottom: none;
