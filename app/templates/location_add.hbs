@@ -59,7 +59,9 @@
       {{view Ember.Select
         contentBinding="security_level_options"
         optionValuePath="content.level"
-        optionLabelPath="content.name"}}
+        optionLabelPath="content.name"
+        selectionBinding="security_level"
+      }}
 
       <a href="javascript://" class="action" {{action "createLocation"}}>Add location</a>
 

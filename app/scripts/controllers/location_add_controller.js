@@ -1,5 +1,7 @@
 DataCollectionApp.LocationAddController = Ember.Controller.extend({
 
+  needs: ['application'],
+
   types: ['Training', 'Mercy', 'Evangelism'].map(ArrayMapHelpers.stringToTagObject),
   areas: ['Youth/Children', 'Campus Ministry', 'Indigenous Ministry', 'Prison Ministry', 'Prostitutes Ministry', 'Orphanage', 'Women', 'Urban', 'Hospital', 'Media/Communications', 'Worship', 'Community Development', 'Bible Studies', 'Church Planting', 'Arts/Entertainment/Sports', 'Counseling', 'Healthcare', 'Maintenance/Construction'].map(ArrayMapHelpers.stringToTagObject),
 
@@ -35,6 +37,8 @@ DataCollectionApp.LocationAddController = Ember.Controller.extend({
 
   createLocation: function () {
 
+    console.log(this.get('controllers.application.default_security_setting')) ;
+
     var location = {
       tags: [],
       desc: 'No description given',
@@ -43,7 +47,7 @@ DataCollectionApp.LocationAddController = Ember.Controller.extend({
       email: '',
       phone: '',
       website: '',
-      security_level: 2, //only my group
+      security_level: this.get('controllers.application.default_security_setting'), //only my group
       created_at: Math.round(+new Date() / 1000)
     },
     given = this ;
@@ -54,7 +58,9 @@ DataCollectionApp.LocationAddController = Ember.Controller.extend({
     if(this.get('email') !== undefined) location.email = this.get('email') ;
     if(this.get('phone') !== undefined) location.phone = this.get('phone') ;
     if(this.get('website') !== undefined) location.website = this.get('website') ;
-    if(this.get('security_level') !== undefined) location.security_level = this.get('security_level') ;
+    if(this.get('security_level').get('level') !== undefined) location.security_level = this.get('security_level').get('level') ;
+
+    this.set('controllers.application.default_security_setting', location.security_level) ;
 
     //check for current location.
     //needs replacement with phonegap api
