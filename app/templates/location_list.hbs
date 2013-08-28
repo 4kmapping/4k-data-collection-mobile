@@ -2,7 +2,9 @@
 
   <ul>
     {{#each model}}
-      <li>{{this.desc}} - {{this.lat}}, {{this.long}}</li>
+      <li class="call-to-action">{{this.desc}} - {{this.lat}}, {{this.long}}</li>
+    {{else}}
+      <li>No locations yet.</li>
     {{/each}}
   </ul>
 
