@@ -1,12 +1,7 @@
 <div class="settings">
 
   <ul>
-    <li><a {{action sync}} href="javascript://">Sync with server</a></li>
-    <li>{{#linkTo 'location.map'}}My data{{/linkTo}}</li>
-  </ul>
-
-  <ul>
-    <li>{{#linkTo 'settings.new_validation_code'}}Create validation code{{/linkTo}}</li>
+    <li class="call-to-action">{{#linkTo 'location.map'}}My data{{/linkTo}}</li>
   </ul>
 
   <ul>
@@ -15,16 +10,16 @@
       {{! http://codepen.io/joshnh/pen/hjbuH }}
       {{view Ember.Checkbox checkedBinding="offlineMode"}}
     </li>
-    <li>{{#linkTo 'settings.privacy'}}Privacy settings{{/linkTo}}</li>
+    <li class="call-to-action"><a {{action sync}} href="javascript://">Sync with server</a></li>
   </ul>
 
   <ul>
-    <li>{{#linkTo 'settings.about'}}About this app{{/linkTo}}</li>
-    <li>{{#linkTo 'settings.feedback'}}Give feedback{{/linkTo}}</li>
+    <li class="call-to-action">{{#linkTo 'settings.about'}}About this app{{/linkTo}}</li>
+    <li class="call-to-action">{{#linkTo 'settings.feedback'}}Give feedback{{/linkTo}}</li>
   </ul>
 
   <ul>
-    <li>{{#linkTo 'settings.logout'}}Log out{{/linkTo}}</li>
+    <li class="call-to-action">{{#linkTo 'settings.app_code'}}Specify app code{{/linkTo}}</li>
   </ul>
 
   {{outlet}}

@@ -27,6 +27,26 @@ $black: #000;
 			box-shadow:  2px 0px 2px 2px rgba(1, 1, 1, .1);
 }
 
+@mixin arrow-right($color: #7f7f7f) {
+
+	&:after {
+		content: '';
+		position: absolute;
+		border-top: 3px solid $color;
+		border-right: 3px solid $color;
+		height: 6px;
+		width: 6px;
+		top: 50%;
+		right: 12px;
+		margin-top: -3px;
+		-webkit-transform: rotate(45deg);
+		-moz-transform: rotate(45deg);
+		-o-transform: rotate(45deg);
+		transform: rotate(45deg);
+	}
+
+}
+
 a {
 	color: $happyBlue;
 	font-size: 18px;
@@ -95,6 +115,8 @@ body {
 
 				display: block;
 
+				position: relative;
+
 				// margin-top: -1px;
 				padding: 15px;
 
@@ -104,6 +126,8 @@ body {
 				color: $black;
 
 				list-style-type: none;
+
+				@include arrow-right ;
 
 				&:last-child {
 					border-bottom: none;
@@ -280,7 +304,12 @@ body {
 		border-top: 1px solid #565656;
 
 		li {
+			position: relative;
 			list-style-type: none;
+
+			&.call-to-action {
+				@include arrow-right($offWhite) ;
+			}
 
 			a, label {
 				display: block;
