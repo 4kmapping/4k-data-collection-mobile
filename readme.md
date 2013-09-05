@@ -8,7 +8,7 @@ Built on top of [Emberjs](http://emberjs.com/) and kept under control with [Yeom
 
 - Clone the repository
 - Make sure mr. [Yeoman](http://yeoman.io/) is installed
-- Make sure you run [Chrome Canary](https://www.google.com/intl/en/chrome/browser/canary.html) with the --disable-web-security flag: `/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary --disable-web-security`
+- Make sure you run [Chrome Canary](https://www.google.com/intl/en/chrome/browser/canary.html) with the --disable-web-security flag: `/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary --disable-web-security` (if you wanna sync with the server, if not, skips this step)
 - cd into the directory
 - run `grunt server`
 - get your most groovin spotify playlist playin'
