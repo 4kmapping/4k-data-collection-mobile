@@ -1,0 +1,368 @@
+@import "bootstrap" ;
+@import "tagit" ;
+@import "checkbox" ;
+
+// colours!
+$white: #fff;
+$offWhite: #c3c3c3;
+
+$lightGrey: #e5e5e5;
+$dropShadowOnLightGrey: #d2d2d2;
+$offLightGrey: #dbdbdb;
+$darkLightGrey: #c8c8c8;
+$blackTextOnGrey: #7b7b7b;
+
+$happyBlue: #0079ff;
+
+$darkGrey: #434343;
+$blackGrey: #555555;
+$black: #000;
+
+// mixins!
+@mixin dropshadow {
+	-webkit-box-shadow:  0px 0px 2px 2px rgba(1, 1, 1, .1);
+			box-shadow:  0px 0px 2px 2px rgba(1, 1, 1, .1);
+}
+
+@mixin horizontal-dropshadow {
+	-webkit-box-shadow:  2px 0px 2px 2px rgba(1, 1, 1, .1);
+			box-shadow:  2px 0px 2px 2px rgba(1, 1, 1, .1);
+}
+
+@mixin arrow-right($color: #7f7f7f) {
+
+	&:after {
+		content: '';
+		position: absolute;
+		border-top: 3px solid $color;
+		border-right: 3px solid $color;
+		height: 6px;
+		width: 6px;
+		top: 50%;
+		right: 12px;
+		margin-top: -3px;
+		-webkit-transform: rotate(45deg);
+		-moz-transform: rotate(45deg);
+		-o-transform: rotate(45deg);
+		transform: rotate(45deg);
+	}
+
+}
+
+a {
+	color: $happyBlue;
+	font-size: 18px;
+
+	&.action {
+		float: right;
+		margin-top: 20px;
+		font-size: 22px;
+	}
+}
+
+body {
+	background-color: $lightGrey ;
+
+	font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-weight: 300;
+}
+
+.main {
+	position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+
+	&.showingSettings {
+		left: 250px;
+	}
+
+	&.slideOver {
+		top: auto;
+		bottom: auto;
+
+		background-color: $lightGrey;
+		z-index: 2000;
+	}
+
+	.content {
+		position: relative;
+
+		width: 300px;
+
+		margin: 0 auto;
+		padding-top: 60px;
+		padding-bottom: 80px;
+
+		h2 {
+			font-weight: 200;
+		}
+
+		label, p {
+			font-weight: 300;
+			font-size: 16px;
+			line-height: 16px * 1.5 ;
+			color: $blackTextOnGrey;
+		}
+
+		ul {
+			margin: 0;
+			margin-bottom: 50px;
+
+			border: 1px solid $offLightGrey;
+
+			li {
+				$fontSize: 16px;
+
+				display: block;
+
+				position: relative;
+
+				// margin-top: -1px;
+				padding: 15px;
+
+				background-color: $white;
+				border-bottom: 1px solid $darkLightGrey;
+				font-size: $fontSize;
+				color: $black;
+
+				list-style-type: none;
+
+				&.call-to-action {
+					@include arrow-right ;
+				}
+
+				&:last-child {
+					border-bottom: none;
+				}
+
+				label {
+					font-size: $fontSize;
+				}
+
+				input[type="checkbox"] {
+					display: inline-block;
+
+					& + label {
+						display: inline-block;
+						padding-top: 6px;
+						padding-left: 10px;
+					}
+				}
+			}
+		}
+
+		form > {
+			input[type="text"],
+			input[type="email"],
+			input[type="tel"],
+			select,
+			textarea {
+				width: 100%;
+
+				padding: 20px;
+				padding-left: 15px;
+				margin-bottom: 20px;
+
+				font-size: 14px;
+
+				border: 1px solid $offLightGrey;
+				border-radius: 0;
+			}
+
+			textarea {
+				width: 100%;
+				max-width: 100%;
+				min-height: 100px;
+				margin-bottom: 50px;
+			}
+		}
+
+		.tagit {
+
+			padding: 5px;
+			border: none;
+			background-color: $darkLightGrey;
+
+			li {
+				font-size: 14px;
+				padding: 5px;
+			}
+
+			.remove.ui-state-highlight {
+				background-color: $lightGrey;
+			}
+
+			.tagit-new {
+				background-color: $offLightGrey;
+			}
+
+			.ui-helper-hidden-accessible {
+				display: none;
+			}
+		}
+	}
+}
+
+.topbar {
+	height: 20px;
+	position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+
+	z-index: 1000;
+
+	padding: 15px;
+
+	.settingsToggle {
+		display: inline-block;
+		margin-top: 10px;
+		color: $blackGrey;
+		font-size: 40px;
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+	.locationToggle {
+		display: inline-block;
+		float: right;
+		margin-top: 10px;
+		margin-right: 5px;
+
+		a {
+			padding: 10px 15px;
+			color: $darkGrey;
+			background-color: $white;
+			float: left;
+
+			&:first-child {
+				border-right: 1px solid $offLightGrey;
+			}
+
+			&:hover {
+				text-decoration: none;
+			}
+
+			&.active {
+				color: $blackTextOnGrey;
+				background-color: #f1f1f1;
+			}
+		}
+
+		@include dropshadow ;
+	}
+
+}
+
+.bottombar {
+	height: 50px;
+
+	position: fixed;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	z-index: 1000;
+
+	background-color: $lightGrey;
+
+	@include horizontal-dropshadow ;
+
+	.add-location {
+		display: block;
+
+		width: 100px;
+		height: 40px;
+
+		margin: -20px auto 0;
+		padding-top: 30px;
+
+		background-color: $white;
+		font-size: 16px;
+		text-align: center;
+
+		@include dropshadow ;
+	}
+}
+
+.google-maps {
+	position: absolute !important; //or googlemaps wont listen
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	z-index: 0;
+}
+
+.settings {
+	width: 250px;
+	position: fixed;
+		top: 0;
+		bottom: 0;
+	z-index: 1500;
+	background-color: $darkGrey;
+
+	ul {
+
+		margin: 0;
+		border-top: 1px solid #565656;
+
+		li {
+			position: relative;
+			list-style-type: none;
+
+			&.call-to-action {
+				@include arrow-right($offWhite) ;
+			}
+
+			a, label {
+				display: block;
+				padding: 15px;
+				color: $offWhite;
+				font-size: 20px;
+
+				&:hover {
+					text-decoration: none;
+				}
+			}
+
+			label, input {
+				display: inline-block;
+			}
+
+			input {
+				margin-top: 13px;
+
+				margin-right: 15px;
+				float: right;
+			}
+
+		}
+	}
+}
+
+.slideOver {
+
+	.topbar {
+		background-color: $white;
+
+		@include horizontal-dropshadow ;
+
+		h1 {
+			width: 300px;
+			position: absolute;
+				top: 0;
+				left: 50%;
+
+			margin-left: -150px;
+			text-align: center;
+			font-size: 23px;
+			line-height: 30px;
+			font-weight: 500;
+		}
+	}
+
+}

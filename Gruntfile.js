@@ -18,8 +18,8 @@ module.exports = function (grunt) {
 
     // configurable paths
     var yeomanConfig = {
-        app: 'app',
-        dist: 'dist'
+        app: 'ember/app',
+        dist: 'www'
     };
 
     grunt.initConfig({
@@ -159,7 +159,7 @@ module.exports = function (grunt) {
                 imagesDir: '<%= yeoman.app %>/images',
                 javascriptsDir: '<%= yeoman.app %>/scripts',
                 fontsDir: '<%= yeoman.app %>/styles/fonts',
-                importPath: 'app/bower_components',
+                importPath: '<%= yeoman.app %>/bower_components',
                 httpImagesPath: '/images',
                 httpGeneratedImagesPath: '/images/generated',
                 httpFontsPath: '/styles/fonts',
@@ -262,18 +262,26 @@ module.exports = function (grunt) {
         // Put files not handled in other tasks here
         copy: {
             dist: {
-                files: [{
-                    expand: true,
-                    dot: true,
-                    cwd: '<%= yeoman.app %>',
-                    dest: '<%= yeoman.dist %>',
-                    src: [
-                        '*.{ico,txt}',
-                        '.htaccess',
-                        'images/{,*/}*.{webp,gif}',
-                        'styles/fonts/*'
-                    ]
-                }]
+                files: [
+                    {
+                        dot: true,
+                        expand: true,
+                        cwd: '<%= yeoman.app %>',
+                        dest: '<%= yeoman.dist %>',
+                        src: [
+                            '*.{ico,txt}',
+                            '.htaccess',
+                            'images/{,*/}*.{webp,gif}',
+                            'styles/fonts/*'
+                        ]
+                    },
+                    {
+                        expand: true,
+                        cwd: 'phonegap-www',
+                        dest: '<%= yeoman.dist %>',
+                        src: '*'
+                    }
+                ]
             }
         },
         concurrent: {
@@ -318,7 +326,8 @@ module.exports = function (grunt) {
             app: {
                 options: {
                     filepathTransform: function (filepath) {
-                        return 'app/' + filepath;
+                        console.log('file: ember/app/', filepath) ;
+                        return 'ember/app/' + filepath;
                     }
                 },
                 src: '<%= yeoman.app %>/scripts/app.js',
