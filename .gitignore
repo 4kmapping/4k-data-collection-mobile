@@ -1,6 +1,10 @@
 node_modules
 temp
-dist
+www
 .sass-cache
 .tmp
 app/bower_components
+
+www/index.html
+
+www/index.html
