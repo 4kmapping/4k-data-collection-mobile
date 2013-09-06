@@ -19,7 +19,8 @@ module.exports = function (grunt) {
     // configurable paths
     var yeomanConfig = {
         app: 'ember/app',
-        dist: 'www'
+        dist: 'www',
+        distiOS: 'platforms/ios/www'
     };
 
     grunt.initConfig({
@@ -106,7 +107,8 @@ module.exports = function (grunt) {
                     src: [
                         '.tmp',
                         '<%= yeoman.dist %>/*',
-                        '!<%= yeoman.dist %>/.git*'
+                        '!<%= yeoman.dist %>/.git*',
+                        '<%= yeoman.distiOS %>/*'
                     ]
                 }]
             },
@@ -278,9 +280,19 @@ module.exports = function (grunt) {
                     {
                         expand: true,
                         cwd: 'phonegap-www',
-                        dest: '<%= yeoman.dist %>',
-                        src: '*'
+                        src: '*',
+                        dest: '<%= yeoman.dist %>'
                     }
+                ]
+            },
+            ios: {
+                files: [
+                    {
+                        expand: true,
+                        cwd: 'www',
+                        src: '**',
+                        dest: '<%= yeoman.distiOS %>'
+                    }                    
                 ]
             }
         },
@@ -333,7 +345,7 @@ module.exports = function (grunt) {
                 src: '<%= yeoman.app %>/scripts/app.js',
                 dest: '.tmp/scripts/combined-scripts.js'
             }
-        }
+        },
     });
 
     grunt.registerTask('server', function (target) {
@@ -367,9 +379,10 @@ module.exports = function (grunt) {
         'concat',
         'cssmin',
         'uglify',
-        'copy',
+        'copy:dist',
         'rev',
-        'usemin'
+        'usemin',
+        'copy:ios'
     ]);
 
     grunt.registerTask('default', [
