@@ -4,7 +4,6 @@ www
 .sass-cache
 .tmp
 app/bower_components
-
 www/index.html
-
-www/index.html
+platforms/ios/www
+*.xcuserstate
