@@ -1,8 +1,9 @@
 DataCollectionApp.SettingsAppCodeRoute = Ember.Route.extend({
 
   model: function() {
-    //TODO: needs correct model!
-    return DataCollectionApp.Location.find();
+    var model = DataCollectionApp.Settings.find(0) ;
+    console.log(model) ;
+    return {} ;
   },
 
   renderTemplate: function() {

@@ -1,3 +1,3 @@
 DataCollectionApp.Settings = DS.Model.extend({
-  app_key: DS.attr('string')
+  appcode: DS.attr('string')
 }) ;
