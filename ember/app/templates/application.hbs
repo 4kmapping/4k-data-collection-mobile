@@ -1,7 +1,7 @@
-<div class="main">
+<div {{bindAttr class=":main showingSettings"}}>
 
   <div class="topbar">
-    {{#linkTo 'settings' classNames="settingsToggle"}}&#9776;{{/linkTo}}
+    <a class="settingsToggle" href="javascript://" {{action 'toggleSettings'}}>&#9776;</a>
     {{outlet topbar}}
   </div>
 
@@ -10,3 +10,5 @@
 </div>
 
 {{outlet modal}}
+
+{{partial "settings"}}

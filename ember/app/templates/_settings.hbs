@@ -1,7 +1,7 @@
-<div class="settings">
+<div {{bindAttr class=":settings showingSettings"}}>
 
   <ul>
-    <li class="call-to-action">{{#linkTo 'location.map'}}My data{{/linkTo}}</li>
+    <li class="call-to-action">{{#linkTo 'location.map'}}Locations{{/linkTo}}</li>
   </ul>
 
   <ul>
@@ -21,7 +21,5 @@
   <ul>
     <li class="call-to-action">{{#linkTo 'settings.app_code'}}Specify app code{{/linkTo}}</li>
   </ul>
-
-  {{outlet}}
 
 </div>

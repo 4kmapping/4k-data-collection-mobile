@@ -7,9 +7,14 @@ DataCollectionApp.Router.map(function () {
 
   this.resource('location.add', { path: '/add' });  
 
-  this.resource('settings', { path: '/settings' }) ;
   this.resource('settings.app_code', { path: '/settings/app_code' }) ;
   this.resource('settings.about', { path: '/settings/about' }) ;
   this.resource('settings.feedback', { path: '/settings/feedback' }) ;
 
+});
+
+Ember.Router.reopen({
+  didTransition: function(views) {
+    views[0].handler.controller.set('showingSettings', false) ;
+  }
 });
