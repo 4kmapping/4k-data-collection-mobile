@@ -1,9 +1,5 @@
 DataCollectionApp.LocationMapRoute = Ember.Route.extend({
 
-  model: function() {
-    return DataCollectionApp.Location.find();
-  },
-
   renderTemplate: function() {
 
     //rendering the topbar

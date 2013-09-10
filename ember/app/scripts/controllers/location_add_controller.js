@@ -37,29 +37,29 @@ DataCollectionApp.LocationAddController = Ember.Controller.extend({
 
   createLocation: function () {
 
-    console.log(this.get('controllers.application.default_security_setting')) ;
+    var location = new DataCollectionApp.Location(),
+        locationDefaults = {
+          tags: [],
+          desc: 'No description given',
+          lat: 0.1,
+          lon: 0.1,
+          email: '',
+          phone: '',
+          website: '',
+          security_level: this.get('controllers.application.default_security_setting'), //only my group
+          created_at: Math.round(+new Date() / 1000)
+        },
+        given = this ;
 
-    var location = {
-      tags: [],
-      desc: 'No description given',
-      lat: 0.1,
-      lon: 0.1,
-      email: '',
-      phone: '',
-      website: '',
-      security_level: this.get('controllers.application.default_security_setting'), //only my group
-      created_at: Math.round(+new Date() / 1000)
-    },
-    given = this ;
+    //go through all defaults
+    $.each(locationDefaults, function(key, value){
+      location[key] = (given.get(key) !== undefined) ? given.get(key) : value ;
+    }) ;
 
-    if(this.get('desc') !== undefined) location.desc = this.get('desc') ;
-    if(this.get('tags') !== undefined) location.tags = this.get('tags') ;
+    //eception for select! 
+    location.security_level = (this.get('security_level').get('level') !== undefined) ? this.get('security_level').get('level') : locationDefaults['security_level'];
 
-    if(this.get('email') !== undefined) location.email = this.get('email') ;
-    if(this.get('phone') !== undefined) location.phone = this.get('phone') ;
-    if(this.get('website') !== undefined) location.website = this.get('website') ;
-    if(this.get('security_level').get('level') !== undefined) location.security_level = this.get('security_level').get('level') ;
-
+    //save security level for next time
     this.set('controllers.application.default_security_setting', location.security_level) ;
 
     //check for current location.
@@ -70,9 +70,19 @@ DataCollectionApp.LocationAddController = Ember.Controller.extend({
 
       location.created_at = Math.round(+new Date()/1000) ;
 
-      DataCollectionApp.Location.createRecord(location).save();
+      //add to persistence object
+      persistence.add(location) ;
 
-      given.transitionToRoute('/') ;
+      //save!
+      persistence.transaction(function(tx) {
+        persistence.flush(tx, function(){          
+          //hurray!
+          console.log('created location') ;
+          given.transitionToRoute('/') ;
+        }) ;
+      }) ;
+
+
 
     }, function(){
       //needs actual things going on here.

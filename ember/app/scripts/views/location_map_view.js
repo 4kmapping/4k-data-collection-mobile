@@ -36,17 +36,17 @@ DataCollectionApp.LocationMapView = Ember.CollectionView.extend({
     var given = this ;
 
     //for every location
-    this.get('controller.content').forEach(function(location){
+    DataCollectionApp.Location.all().each(function(location){
 
       // create a new marker
       new google.maps.Marker({
-          position: new google.maps.LatLng(location.get('lat'), location.get('lon')),
+          position: new google.maps.LatLng(location.lat, location.lon),
           map: given.get('map'),
           title: location.desc
       }) ;
 
     });
 
-  }.observes('controller.content.@each') //and call this function everytime the locations change
+  }
 
 });
