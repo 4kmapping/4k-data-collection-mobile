@@ -1,9 +1,18 @@
 <div class="content">
 
-  <p>Syncing {{locationsAlreadySynced}} out of {{totalLocationsToBeSynced}} locations with the 4k data server.</p>
+  <div {{bindAttr class=":status isSyncing:active"}}>
 
-  <div class="progress progress-striped active">
-    <div class="bar" {{bindAttr style=inlineStyleWithPercentageCompleted}}></div>
+    <p>Syncing {{locationsAlreadySynced}} out of {{totalLocationsToBeSynced}} locations with the 4k data server.</p>
+
+    <div class="progress progress-striped active">
+      <div class="bar" {{bindAttr style=inlineStyleWithPercentageCompleted}}></div>
+    </div>
+
+  </div>
+
+  <div {{bindAttr class=":status isSyncing::active"}}>
+    <p>Successfully synced {{totalLocationsToBeSynced}} locations.</p>
+    {{#linkTo 'location.map'}}Back to map{{/linkTo}}
   </div>
 
   {{outlet}}

@@ -200,6 +200,18 @@ body {
 			}
 		}
 
+		div.status {
+			max-height: 0;
+			opacity: 0;
+
+			-webkit-transition: all .5s ease ;
+
+			&.active {
+				max-height: 200px;
+				opacity: 1;
+			}
+		}
+
 		.tagit {
 
 			padding: 5px;

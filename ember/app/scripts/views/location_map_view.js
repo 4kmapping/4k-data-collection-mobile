@@ -14,8 +14,8 @@ DataCollectionApp.LocationMapView = Ember.CollectionView.extend({
       //TODO: less biased default location? :)
       center: new google.maps.LatLng(52.370216, 4.895168),
       mapTypeId: google.maps.MapTypeId.ROADMAP
-      },
-      given = this ;
+    },
+    given = this ;
 
     //set the map as a controller property
     this.set('map', new google.maps.Map(this.$()[0], mapOptions));

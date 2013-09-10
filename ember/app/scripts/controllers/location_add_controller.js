@@ -82,8 +82,6 @@ DataCollectionApp.LocationAddController = Ember.Controller.extend({
         }) ;
       }) ;
 
-
-
     }, function(){
       //needs actual things going on here.
       console.error('could not find location!') ;
