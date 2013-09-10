@@ -360,8 +360,16 @@ body {
 			position: relative;
 			list-style-type: none;
 
+			max-height: 200px;
+			overflow: hidden;
+			-webkit-transition: max-height 500ms ease ;
+
 			&.call-to-action {
 				@include arrow-right($offWhite) ;
+			}
+
+			&.inactive {
+				max-height: 0;
 			}
 
 			a, label {

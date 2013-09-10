@@ -10,7 +10,8 @@
       {{! http://codepen.io/joshnh/pen/hjbuH }}
       {{view Ember.Checkbox checkedBinding="offlineMode"}}
     </li>
-    <li class="call-to-action"><a {{action sync}} href="javascript://">Sync with server</a></li>
+
+    <li {{bindAttr class=":call-to-action offlineMode:inactive"}}><a {{action sync}} href="javascript://">Sync with server</a></li>
   </ul>
 
   <ul>
