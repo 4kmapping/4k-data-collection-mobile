@@ -1,9 +1,15 @@
 DataCollectionApp.SettingsAppCodeRoute = Ember.Route.extend({
 
-  model: function() {
-    var model = DataCollectionApp.Settings.find(0) ;
-    console.log(model) ;
-    return {} ;
+  setupController: function(controller) {
+
+    DataCollectionApp.Setting.all().one(function(setting){
+
+      console.log('loading appcode', setting.appcode)
+
+      controller.set('appCode', setting.appcode) ;
+
+    }) ;
+
   },
 
   renderTemplate: function() {

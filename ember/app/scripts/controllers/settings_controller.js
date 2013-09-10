@@ -36,6 +36,8 @@ DataCollectionApp.SettingsController = Ember.ObjectController.extend({
           request.setRequestHeader('Authorization', 'ApiKey admin:5e4d3c2b1a');
         },
         complete: function(){
+          // set 'saved' status
+          // update ui
           // console.log(arguments) ;
         }
       }) ;
