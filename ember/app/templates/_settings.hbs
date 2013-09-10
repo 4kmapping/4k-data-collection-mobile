@@ -11,7 +11,9 @@
       {{view Ember.Checkbox checkedBinding="offlineMode"}}
     </li>
 
-    <li {{bindAttr class=":call-to-action offlineMode:inactive"}}><a {{action sync}} href="javascript://">Sync with server</a></li>
+    <li {{bindAttr class=":call-to-action offlineMode:inactive"}}>
+      {{#linkTo 'settings.sync'}}Sync with server{{/linkTo}}
+    </li>
   </ul>
 
   <ul>

@@ -1,0 +1,11 @@
+<div class="content">
+
+  <p>Syncing {{locationsAlreadySynced}} out of {{totalLocationsToBeSynced}} locations with the 4k data server.</p>
+
+  <div class="progress progress-striped active">
+    <div class="bar" {{bindAttr style=inlineStyleWithPercentageCompleted}}></div>
+  </div>
+
+  {{outlet}}
+
+</div>

@@ -8,6 +8,7 @@ DataCollectionApp.Router.map(function () {
   this.resource('location.add', { path: '/add' });  
 
   this.resource('settings.app_code', { path: '/settings/app_code' }) ;
+  this.resource('settings.sync', { path: '/settings/sync' }) ;
   this.resource('settings.about', { path: '/settings/about' }) ;
   this.resource('settings.feedback', { path: '/settings/feedback' }) ;
 
