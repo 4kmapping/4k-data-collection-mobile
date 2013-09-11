@@ -23,7 +23,7 @@ DataCollectionApp.SettingsSyncController = Ember.ObjectController.extend({
 
     var given = this ;
 
-    DataCollectionApp.Location.all().list(function(locations){
+    DataCollectionApp.Location.all().filter('syncedWithServer', '=', false).list(function(locations){
 
       console.log(locations) ;
 

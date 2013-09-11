@@ -2,7 +2,8 @@ DataCollectionApp.SettingsSyncRoute = Ember.Route.extend({
 
   //controller init callback
   setupController: function(controller) {
-    setTimeout($.proxy(controller.startSyncing, controller), 1000) ;
+    controller.isSyncing = true ;
+    controller.startSyncing() ;
   },
 
   renderTemplate: function() {
