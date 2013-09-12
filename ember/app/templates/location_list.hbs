@@ -2,7 +2,12 @@
 
   <ul>
     {{#each locations}}
-      <li>{{this.desc}}</li>
+      <li>
+        {{desc}}
+        {{#unless syncedWithServer}}
+          <span class="muted pull-right">Not synced</span>
+        {{/unless}}
+      </li>
     {{else}}
       <li>No locations yet.</li>
     {{/each}}
