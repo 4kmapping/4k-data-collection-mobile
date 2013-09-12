@@ -19,8 +19,10 @@ var DataCollectionApp = window.DataCollectionApp = Ember.Application.create({
         if(setting == null){
 
           var setting = new DataCollectionApp.Setting() ;
+
           //no appcode in then beginning
-          setting.appcode = '' ;
+          setting.appCode = '' ;
+          setting.appUser = '' ;
 
           //add to persistence object
           persistence.add(setting) ;

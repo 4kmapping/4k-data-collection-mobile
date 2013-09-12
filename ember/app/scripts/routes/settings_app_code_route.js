@@ -6,8 +6,9 @@ DataCollectionApp.SettingsAppCodeRoute = Ember.Route.extend({
     //load setting instance!
     DataCollectionApp.Setting.all().one(function(setting){
 
-      //set the appcode property on the controller
-      controller.set('appCode', setting.appcode) ;
+      //set the properties on the controller
+      controller.set('appCode', setting.appCode) ;
+      controller.set('appUser', setting.appUser) ;
 
     }) ;
 

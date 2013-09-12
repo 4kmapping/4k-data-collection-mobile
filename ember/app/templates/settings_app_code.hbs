@@ -1,16 +1,23 @@
 <div class="content">
 
-  <p>The app code is required to save your information to the 4k data server. You'll receive this code from the 4k team and only will have to enter this in once.</p>
+  <p>These credentials are required to save your information to the 4k data server. You'll receive this from the 4k team and only will have to enter this in once.</p>
 
+  <form>
 
-  <form {{action "saveAppCode" on="submit"}}>
+    <label for="appUser">App user</label>
+    {{view Ember.TextField id="appUser" valueBinding="appUser" type="text"}}
 
     <label for="appCode">App code</label>
     {{view Ember.TextField id="appCode" valueBinding="appCode" type="text"}}
 
-    <p class="success hidden">App code succesfully set to {{appCode}}</p>
+    <a href="javascript://" {{action "saveCredentials"}}>Save credentials</a>
 
   </form>
+
+  <div {{bindAttr class=":status isSaved:active"}}>
+    <p>App credentials succesfully set to {{appUser}}:{{appCode}}</p>
+    {{#linkTo 'location.map'}}Back to locations{{/linkTo}}
+  </div>
 
   {{outlet}}
 

@@ -1,3 +1,4 @@
 DataCollectionApp.Setting = persistence.define('Setting', {
-  appcode: "TEXT",
+  appCode: "TEXT",
+  appUser: "TEXT"
 });

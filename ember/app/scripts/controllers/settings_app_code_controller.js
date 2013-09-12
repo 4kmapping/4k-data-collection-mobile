@@ -1,10 +1,13 @@
 DataCollectionApp.SettingsAppCodeController = Ember.ObjectController.extend({
 
+  isSaved: false,
+
   //start with default, real one gets loaded in setupController in router
   appCode: '',
+  appUser: '',
 
   //action to save them appcodes!
-  saveAppCode: function(){
+  saveCredentials: function(){
 
     var given = this ;
 
@@ -13,15 +16,14 @@ DataCollectionApp.SettingsAppCodeController = Ember.ObjectController.extend({
     DataCollectionApp.Setting.all().one(function(setting){
 
       //set app code
-      setting.appcode = given.appCode ;
+      setting.appCode = given.appCode ;
+      setting.appUser = given.appUser ;
 
       //save it to the settings instance
       persistence.transaction(function(tx) {
         persistence.flush(tx, function(){
 
-          //update ui
-          $('form .success').fadeIn() ;
-          $('form input').blur() ;
+          given.set('isSaved', true) ;
 
         }) ;
       }) ;
