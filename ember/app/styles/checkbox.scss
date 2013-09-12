@@ -19,7 +19,7 @@ input[type="checkbox"] {
   width: 44px;
   vertical-align: top;
 
-  appearance: none;
+  -webkit-appearance: none;
   cursor: pointer;
   
   &:after {
@@ -42,7 +42,7 @@ input[type="checkbox"] {
   }
   &:checked {
     border-color: $mainColor;
-    box-shadow: inset 0 0 0 14px $mainColor;
+    box-shadow: inset 0 0 0 13px $mainColor;
     padding-left: 18px;
     transition: border .25s,
                 box-shadow .25s,
