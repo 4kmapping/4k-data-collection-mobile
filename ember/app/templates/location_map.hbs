@@ -1,1 +1,12 @@
-{{view DataCollectionApp.LocationMapView}}
+{{#unless controllers.application.offlineMode}}
+
+  {{view DataCollectionApp.MapView}}
+
+{{else}}
+
+  <div class="content">
+    <p>Map functionality is not available in offline mode.</p>
+    {{#linkTo 'location.list'}}List locations{{/linkTo}}
+  </div>
+
+{{/unless}}

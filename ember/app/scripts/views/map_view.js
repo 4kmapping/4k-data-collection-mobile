@@ -1,10 +1,12 @@
-DataCollectionApp.LocationMapView = Ember.CollectionView.extend({
+DataCollectionApp.MapView = Ember.CollectionView.extend({
 
   map: null,
 
   classNames: ['google-maps'],
 
   didInsertElement: function() {
+
+    console.log('for some reason being called') ;
 
     var mapOptions = {
       //UI's are for desktops, ieuw.

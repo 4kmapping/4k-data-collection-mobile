@@ -9,7 +9,7 @@ DataCollectionApp.LocationMapRoute = Ember.Route.extend({
     });
 
     //rendering the main thing
-    this.render('location_map');
+    this.render('location_map') ;
 
   }
 
