@@ -5,14 +5,25 @@
     <p>Syncing {{locationsAlreadySynced}} out of {{totalLocationsToBeSynced}} locations with the 4k data server.</p>
 
     <div class="progress progress-striped active">
-      <div class="bar" {{bindAttr style=inlineStyleWithPercentageCompleted}}></div>
+      <div class="bar" {{bindAttr style="inlineStyleWithPercentageCompleted"}}></div>
     </div>
 
   </div>
 
   <div {{bindAttr class=":status isSyncing::active"}}>
-    <p>Successfully synced {{totalLocationsToBeSynced}} locations.</p>
-    {{#linkTo 'location.map'}}Back to locations{{/linkTo}}
+
+    {{#unless withErrors}}
+
+      <p>Successfully synced {{totalLocationsToBeSynced}} locations.</p>
+      {{#linkTo 'location.map'}}Back to locations{{/linkTo}}
+
+    {{else}}
+
+      <p>Error from server: {{lastError}}</p>
+      <p>Be sure to verify your app credentials.</p>
+
+    {{/unless}}
+
   </div>
 
   {{outlet}}

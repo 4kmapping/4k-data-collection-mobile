@@ -6,6 +6,9 @@ DataCollectionApp.SettingsSyncController = Ember.ObjectController.extend({
 
   isSyncing: true,
 
+  withErrors: false,
+  lastError: '',
+
   totalLocationsToBeSynced: 0,
   locationsAlreadySynced: 0,
 
@@ -19,7 +22,8 @@ DataCollectionApp.SettingsSyncController = Ember.ObjectController.extend({
 
   startSyncing: function() {
 
-    console.log('starting sync') ;
+    //reset from last sync
+    this.set('withErrors', false) ;
 
     var given = this ;
 
@@ -59,35 +63,43 @@ DataCollectionApp.SettingsSyncController = Ember.ObjectController.extend({
         },
         given = this ;
 
-    $.ajax({
-      url: this.server_root_address + 'location/',
-      method: 'post',
-      data: JSON.stringify(locationObject),
-      crossDomain: true,
-      contentType: 'application/json',
-      beforeSend: function(request){
-        request.setRequestHeader('Authorization', 'ApiKey admin:5e4d3c2b1a');
-      },
-      success: function(){
-  
-        location.syncedWithServer = true ;
+    DataCollectionApp.Setting.all().one(function(setting){
 
-        //save it to the settings instance
-        persistence.transaction(function(tx) {
-          persistence.flush(tx, function(){
-            console.log('noted as synced') ;
+      $.ajax({
+        url: given.server_root_address + 'location/',
+        method: 'post',
+        data: JSON.stringify(locationObject),
+        crossDomain: true,
+        contentType: 'application/json',
+        beforeSend: function(request){
+          request.setRequestHeader('Authorization', 'ApiKey ' + setting.appUser + ':' + setting.appCode);
+        },
+        success: function(){
+    
+          location.syncedWithServer = true ;
+
+          //save it to the settings instance
+          persistence.transaction(function(tx) {
+            persistence.flush(tx, function(){
+              console.log('noted as synced') ;
+            });
           });
-        });
 
-      },
-      complete: function(){
+        },
+        complete: function(){
 
-        given.set('locationsAlreadySynced', parseInt(given.locationsAlreadySynced) + 1) ;
-        console.log('current', given.locationsAlreadySynced, given.percentageComplete) ;
+          given.set('locationsAlreadySynced', parseInt(given.locationsAlreadySynced) + 1) ;
+          console.log('current', given.locationsAlreadySynced, given.percentageComplete) ;
 
-        given.syncNextLocation() ;
+          given.syncNextLocation() ;
 
-      }
+        },
+        error: function(object, type, error){
+          given.set('withErrors', true) ;
+          given.set('lastError', error) ;
+        }
+      }) ;
+
     }) ;
 
   },
