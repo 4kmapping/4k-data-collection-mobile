@@ -1,6 +1,10 @@
 DataCollectionApp.LocationListRoute = Ember.Route.extend({
-  model: function() {
-    return DataCollectionApp.Location.all().list() ;
+  setupController: function(controller) {
+
+    DataCollectionApp.Location.all().list(function(locations){
+      controller.set('locations', locations) ;
+    }) ;
+
   },
   renderTemplate: function() {
 

@@ -42,9 +42,9 @@ DataCollectionApp.MapView = Ember.CollectionView.extend({
 
       // create a new marker
       new google.maps.Marker({
-          position: new google.maps.LatLng(location.lat, location.lon),
-          map: given.get('map'),
-          title: location.desc
+        position: new google.maps.LatLng(location.lat, location.lon),
+        map: given.get('map'),
+        title: location.desc
       }) ;
 
     });
