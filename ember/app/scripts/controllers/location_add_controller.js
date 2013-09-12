@@ -75,10 +75,11 @@ DataCollectionApp.LocationAddController = Ember.Controller.extend({
 
       //save!
       persistence.transaction(function(tx) {
-        persistence.flush(tx, function(){          
-          //hurray!
-          console.log('created location') ;
-          given.transitionToRoute('/') ;
+        persistence.flush(tx, function(){
+
+          //redirect to correct location based on app offline mode
+          given.transitionToRoute((given.get('controllers.application.offlineMode') == true) ? '/list' : '/settings/sync') ;
+
         }) ;
       }) ;
 
