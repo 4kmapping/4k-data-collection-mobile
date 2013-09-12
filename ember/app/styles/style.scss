@@ -58,6 +58,7 @@ $settingsToggleAnimationTime: .5s;
 a {
 	color: $happyBlue;
 	font-size: 18px;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
 	&.action {
 		float: right;

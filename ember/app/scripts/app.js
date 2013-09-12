@@ -5,6 +5,9 @@ var DataCollectionApp = window.DataCollectionApp = Ember.Application.create({
   //when the app is ready
   ready: function(){
 
+    //for :active selectors
+    document.addEventListener("touchstart", function(){}, true);
+
     //set up persistencejs db!
     //with 10mb of room! (should be enough?)
     persistence.store.websql.config(persistence, '4kdatacollection', 'DB for the 4k datacollection app', 10 * 1024 * 1024);
