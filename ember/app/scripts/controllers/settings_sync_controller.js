@@ -11,6 +11,7 @@ DataCollectionApp.SettingsSyncController = Ember.ObjectController.extend({
 
   totalLocationsToBeSynced: 0,
   locationsAlreadySynced: 0,
+  noLocationNeedsSyncing: false,
 
   percentageComplete: function(){
     return (this.totalLocationsToBeSynced > 0) ? Math.round(this.locationsAlreadySynced / this.totalLocationsToBeSynced * 100) : 0 ;
@@ -29,23 +30,23 @@ DataCollectionApp.SettingsSyncController = Ember.ObjectController.extend({
 
     DataCollectionApp.Location.all().filter('syncedWithServer', '=', false).list(function(locations){
 
-      console.log(locations) ;
+      if(locations.length == 0) {
+        given.set('noLocationNeedsSyncing', true) ;
+      }
+      else{
+        given.set('noLocationNeedsSyncing', false) ;
 
-      given.set('locations', locations);
-      console.log('locs', given.locations) ;
-      given.set('totalLocationsToBeSynced', given.locations.length) ;
+        given.set('locations', locations);
+        given.set('totalLocationsToBeSynced', given.locations.length) ;
 
-      given.syncNextLocation() ;
-
-      console.log('Sent ' + given.locationsAlreadySynced + '/' + given.totalLocationsToBeSynced + ' to the server.') ;
+        given.syncNextLocation() ;
+      }
 
     });
 
   },
 
   syncNextLocation: function(){
-
-    console.log('syncing next location') ;
 
     if(this.locationsAlreadySynced > 0
     && this.locationsAlreadySynced == this.totalLocationsToBeSynced) {
@@ -80,16 +81,13 @@ DataCollectionApp.SettingsSyncController = Ember.ObjectController.extend({
 
           //save it to the settings instance
           persistence.transaction(function(tx) {
-            persistence.flush(tx, function(){
-              console.log('noted as synced') ;
-            });
+            persistence.flush();
           });
 
         },
         complete: function(){
 
           given.set('locationsAlreadySynced', parseInt(given.locationsAlreadySynced) + 1) ;
-          console.log('current', given.locationsAlreadySynced, given.percentageComplete) ;
 
           given.syncNextLocation() ;
 
@@ -105,7 +103,6 @@ DataCollectionApp.SettingsSyncController = Ember.ObjectController.extend({
   },
 
   syncIsCompleted: function(){
-    console.log('sync is done!') ;
     this.set('isSyncing', false) ;
   }
 

@@ -1,6 +1,6 @@
 <div class="content">
 
-  <div {{bindAttr class=":status isSyncing:active"}}>
+  <div {{bindAttr class=":status isSyncing:active noLocationNeedsSyncing::active"}}>
 
     <p>Syncing {{locationsAlreadySynced}} out of {{totalLocationsToBeSynced}} locations with the 4k data server.</p>
 
@@ -24,6 +24,11 @@
 
     {{/unless}}
 
+  </div>
+
+  <div {{bindAttr class=":status noLocationNeedsSyncing:active"}}>
+    <p>No locations need to be synced at this time.</p>
+    {{#linkTo 'location.map'}}Back to locations{{/linkTo}}
   </div>
 
   {{outlet}}

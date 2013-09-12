@@ -198,6 +198,9 @@ body {
 		}
 
 		div.status {
+			position: relative;
+			z-index: 10;
+
 			max-height: 0;
 			opacity: 0;
 
@@ -208,8 +211,9 @@ body {
 			}
 
 			&.active {
-				max-height: 200px;
+				max-height: 1000px;
 				opacity: 1;
+				z-index: 100;
 
 				> * {
 					visibility: visible;
