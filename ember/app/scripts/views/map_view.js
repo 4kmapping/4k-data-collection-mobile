@@ -6,8 +6,6 @@ DataCollectionApp.MapView = Ember.CollectionView.extend({
 
   didInsertElement: function() {
 
-    console.log('for some reason being called') ;
-
     var mapOptions = {
       //UI's are for desktops, ieuw.
       disableDefaultUI: true,
