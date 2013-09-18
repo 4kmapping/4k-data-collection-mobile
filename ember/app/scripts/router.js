@@ -15,7 +15,17 @@ DataCollectionApp.Router.map(function () {
 });
 
 Ember.Router.reopen({
+
   didTransition: function(views) {
+
     views[0].handler.controller.set('showingSettings', false) ;
+    
+    var className = views[views.length-1].name.replace('.', '-') ;
+
+    $('body').attr('class', 'ember-application').addClass(className) ;
+
+    this.super() ;
+
   }
+
 });
