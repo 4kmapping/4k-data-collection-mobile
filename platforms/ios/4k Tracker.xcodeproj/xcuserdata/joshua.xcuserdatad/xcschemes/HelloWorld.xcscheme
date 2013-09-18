@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1D6058900D05DD3D006BFB54"
-               BuildableName = "4k Data Collection.app"
-               BlueprintName = "4k Data Collection"
-               ReferencedContainer = "container:4k Data Collection.xcodeproj">
+               BuildableName = "4k Tracker.app"
+               BlueprintName = "4k Tracker"
+               ReferencedContainer = "container:4k Tracker.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,15 +33,15 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1D6058900D05DD3D006BFB54"
-            BuildableName = "4k Data Collection.app"
-            BlueprintName = "4k Data Collection"
-            ReferencedContainer = "container:4k Data Collection.xcodeproj">
+            BuildableName = "4k Tracker.app"
+            BlueprintName = "4k Tracker"
+            ReferencedContainer = "container:4k Tracker.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
    <LaunchAction
-      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.GDB"
-      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.GDB"
+      selectedDebuggerIdentifier = ""
+      selectedLauncherIdentifier = "Xcode.IDEFoundation.Launcher.PosixSpawn"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Debug"
@@ -52,9 +52,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1D6058900D05DD3D006BFB54"
-            BuildableName = "4k Data Collection.app"
-            BlueprintName = "4k Data Collection"
-            ReferencedContainer = "container:4k Data Collection.xcodeproj">
+            BuildableName = "4k Tracker.app"
+            BlueprintName = "4k Tracker"
+            ReferencedContainer = "container:4k Tracker.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -70,9 +70,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1D6058900D05DD3D006BFB54"
-            BuildableName = "4k Data Collection.app"
-            BlueprintName = "4k Data Collection"
-            ReferencedContainer = "container:4k Data Collection.xcodeproj">
+            BuildableName = "4k Tracker.app"
+            BlueprintName = "4k Tracker"
+            ReferencedContainer = "container:4k Tracker.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
