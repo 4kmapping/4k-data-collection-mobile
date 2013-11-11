@@ -3,7 +3,7 @@ DataCollectionApp.LocationAddController = Ember.Controller.extend({
   needs: ['application'],
 
   types: ['Training', 'Mercy', 'Evangelism'].map(ArrayMapHelpers.stringToTagObject),
-  areas: ['Youth/Children', 'Campus Ministry', 'Indigenous Ministry', 'Prison Ministry', 'Prostitutes Ministry', 'Orphanage', 'Women', 'Urban', 'Hospital', 'Media/Communications', 'Worship', 'Community Development', 'Bible Studies', 'Church Planting', 'Arts/Entertainment/Sports', 'Counseling', 'Healthcare', 'Maintenance/Construction'].map(ArrayMapHelpers.stringToTagObject),
+  areas: ['Youth/Children', 'Campus Ministry', 'Indigenous Ministry', 'Prison Ministry', 'Prostitutes Ministry', 'Orphanage', 'Women', 'Urban', 'Hospital', 'Media/Communications', 'Worship', 'Community Development', 'Bible Studies', 'Church Planting', 'Arts/Entertainment/Sports', 'Counseling', 'Healthcare', 'Maintenance/Construction', 'Research'].map(ArrayMapHelpers.stringToTagObject),
 
   security_level_options: [
     Ember.Object.create({ level: 0, name: 'Everybody' }),
@@ -46,6 +46,7 @@ DataCollectionApp.LocationAddController = Ember.Controller.extend({
           email: '',
           phone: '',
           website: '',
+          contact_info_is_authorized: 0,
           security_level: this.get('controllers.application.default_security_setting'), //only my group
           created_at: Math.round(+new Date() / 1000)
         },
@@ -56,7 +57,7 @@ DataCollectionApp.LocationAddController = Ember.Controller.extend({
       location[key] = (given.get(key) !== undefined) ? given.get(key) : value ;
     }) ;
 
-    //eception for select! 
+    //exception for select! 
     location.security_level = (this.get('security_level').get('level') !== undefined) ? this.get('security_level').get('level') : locationDefaults['security_level'];
 
     //save security level for next time

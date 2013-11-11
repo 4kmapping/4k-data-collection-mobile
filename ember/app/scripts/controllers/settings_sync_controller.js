@@ -30,7 +30,7 @@ DataCollectionApp.SettingsSyncController = Ember.ObjectController.extend({
 
     DataCollectionApp.Location.all().filter('syncedWithServer', '=', false).list(function(locations){
 
-      if(locations.length == 0) {
+      if(locations.length === 0) {
         given.set('noLocationNeedsSyncing', true) ;
       }
       else{
@@ -61,6 +61,7 @@ DataCollectionApp.SettingsSyncController = Ember.ObjectController.extend({
           lon: location.lon,
           desc: location.desc,
           tags: location.tags,
+          contact_info_is_authorized: location.contact_info_is_authorized
         },
         given = this ;
 
@@ -88,7 +89,6 @@ DataCollectionApp.SettingsSyncController = Ember.ObjectController.extend({
         complete: function(){
 
           given.set('locationsAlreadySynced', parseInt(given.locationsAlreadySynced) + 1) ;
-
           given.syncNextLocation() ;
 
         },

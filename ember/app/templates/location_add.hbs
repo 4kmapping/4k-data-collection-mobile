@@ -9,7 +9,7 @@
 
     <form {{action "createLocation" on="submit"}}>
 
-      <h2>To what categories does this ministry belong?</h2>
+      <h2>What main type of activity did you do at this location?</h2>
 
       <ul>
        {{#each types}}
@@ -20,7 +20,7 @@
        {{/each}}
       </ul>
 
-      <h2>What areas of ministry happen on this location?</h2>
+      <h2>What other activities did you do at this location?</h2>
 
       <ul>
        {{#each areas}}
@@ -31,20 +31,20 @@
        {{/each}}
       </ul>
 
-      <h2>Could you give a brief description of this ministry?</h2>
+      <h2>Please give a brief description about this location</h2>
 
-      <label for="desc">What is the actual work? Towards what demographic or people group is this work aimed at? What does this work involve?</label>
+      <label for="desc">Languages spoken? Spiritual or Physical Needs? Future Ministry Opportunities? Opennes to the Gospel?</label>
       {{view Ember.TextArea id="desc" valueBinding="desc"}}
 
       <h2>What other tags would be fitting for this ministry?</h2>
 
-      <label for="tags">Eg; water-access, prayer-room, childrens-education, etc</label>
+      <label for="tags">Eg; water-access, prayer-room, children-education, etc</label>
 
       <ul id="tags"></ul>
 
       {{view Ember.TextField valueBinding="tagString" type="hidden"}}
 
-      <h2>How can we stay in contact with this ministry?</h2>
+      <h2>Please include any contact info for future ministry activities.</h2>
 
       <label for="email">Email</label>
       {{view Ember.TextField id="email" valueBinding="email" type="email"}}
@@ -54,6 +54,9 @@
 
       <label for="website">Website</label>
       {{view Ember.TextField id="website" valueBinding="website" type="text"}}
+
+      {{view Ember.Checkbox id="contact_info_is_authorized" checkedBinding="contact_info_is_authorized"}}
+      <label for="contact_info_is_authorized">I am authorized to send this contact information.</label>
 
       <h2>Who can know this information?</h2>
       {{view Ember.Select

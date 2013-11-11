@@ -8,5 +8,6 @@ DataCollectionApp.Location = persistence.define('Location', {
   website: 'TEXT',
   security_level: 'INT',
   created_at: 'DATE',
-  syncedWithServer: 'BOOL'
+  contact_info_is_authorized: 'BOOL',
+  syncedWithServer: 'BOOL',
 });

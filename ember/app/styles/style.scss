@@ -129,6 +129,11 @@ body {
 			color: $blackTextOnGrey;
 		}
 
+		input[type="checkbox"] {
+			float: left;
+			margin-right: 15px;
+		}
+
 		ul {
 			margin: 0;
 			margin-bottom: 50px;
@@ -166,6 +171,7 @@ body {
 
 				input[type="checkbox"] {
 					display: inline-block;
+					margin-right: 0;
 
 					& + label {
 						display: inline-block;
